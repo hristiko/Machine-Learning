@@ -1,0 +1,8 @@
+creditcard.csv
+saved_models/
+__pycache__/
+*.pkl
+*.keras
+*.npy
+.env
+venv/
