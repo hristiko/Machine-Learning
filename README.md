@@ -1,59 +1,86 @@
 # Credit Card Fraud Detection
 
-This is an ML project for studying purposes, which detects fraudulent credit card transactions. The dataset is highly imbalanced, meaning that legitimate transactions are much more common than fraud transactions.
+A machine learning project comparing a manually implemented **Perceptron** with an **Artificial Neural Network (ANN)** for detecting fraudulent credit card transactions.
 
-Link to the dataset: https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud
+The project uses the [Credit Card Fraud Detection dataset from Kaggle](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud), containing **284,807 transactions**. Fraud represents only about **0.172%** of the data, making this a highly imbalanced classification problem.
 
-The project compares two models:
+## Models
 
-* Perceptron
-* Artificial Neural Network
+### Perceptron
 
-## Required Libraries
+A simple linear classifier used as a baseline.
 
-Install the required libraries before running the scripts:
+Random oversampling was applied to the training data so that fraud examples appeared more often during training.
 
-```bash
-pip install numpy pandas scikit-learn tensorflow matplotlib
-```
+### Artificial Neural Network
 
-## Libraries Used
+Implemented using TensorFlow/Keras with:
+
+* Hidden layers: 64, 32 and 16 neurons
+* Batch Normalization
+* ReLU activation
+* He Normal initialization
+* AdamW optimizer
+* Binary Focal Crossentropy
+* Validation-based threshold tuning
+
+## Evaluation
+
+The models were evaluated using:
+
+* Precision
+* Recall
+* F1-score
+* False Positive Rate
+* PR-AUC
+* Confusion Matrix
+
+These metrics are more useful than accuracy alone because fraud transactions are extremely rare.
+
+## Results
+
+| Metric              | Perceptron |         ANN |
+| ------------------- | ---------: | ----------: |
+| Accuracy            |     87.49% |  **99.93%** |
+| Precision           |      1.26% |  **75.93%** |
+| Recall              | **92.86%** |      83.67% |
+| F1-score            |      2.49% |  **79.61%** |
+| False Positive Rate |     12.52% |   **0.05%** |
+| PR-AUC              |        N/A | **0.75121** |
+| Fraud detected      |         91 |          82 |
+| False alarms        |      7,120 |      **26** |
+
+The Perceptron detected more fraud cases but produced **7,120 false alarms**. The ANN reduced this to only **26 false alarms** while still detecting 82 of the 98 fraud transactions.
+
+## Results Visualization
+
+![Threshold vs Precision, Recall and F1-score](results/threshold_metrics.png)
+
+![Precision-Recall Curve](results/precision_recall_curve.png)
+
+## Technologies
+
+* Python
+* TensorFlow / Keras
+* Scikit-learn
+* Pandas
+* NumPy
+* Matplotlib
+
+## Conclusion
+
+The ANN performed better overall because it provided a much better balance between detecting fraud and avoiding false alerts.
+
+Its final performance was:
 
 ```text
-numpy - numerical operations
-pandas - loading and handling the dataset
-scikit-learn - preprocessing, metrics, Perceptron
-tensorflow - Artificial Neural Network
-matplotlib - plotting graphs
+Precision: 75.93%
+Recall:    83.67%
+F1-score:  79.61%
+PR-AUC:    0.75121
 ```
 
-## Running the Project
+## Author
 
-Before running the evaluation script, both models must be trained first. This is necessary because the evaluation script uses the saved trained models.
-
-Run the training scripts first:
-
-```bash
-python -m training.train_perceptron
-python -m training.train_neural_network
-```
-Then run the evaluation script:
-
-```
-python -m evaluation
-```
-
-## Notes
-
-The `Class` column is the target:
-
-```text
-0 = legitimate transaction
-1 = fraudulent transaction
-```
-
-`Time` and `Amount` are scaled using `StandardScaler`.
-
-The Perceptron uses random oversampling of fraud cases because the dataset is highly imbalanced.
-
-The Artificial Neural Network is the main model and uses techniques such as focal loss, callbacks, and threshold tuning to improve fraud detection.
+**Hristijan Kochovski**
+UP FAMNIT
