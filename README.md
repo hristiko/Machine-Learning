@@ -20,11 +20,11 @@ pip install numpy pandas scikit-learn tensorflow matplotlib
 ## Libraries Used
 
 ```text
-numpy        - numerical operations
-pandas       - loading and handling the dataset
+numpy - numerical operations
+pandas - loading and handling the dataset
 scikit-learn - preprocessing, metrics, Perceptron
-tensorflow   - Artificial Neural Network
-matplotlib   - plotting graphs
+tensorflow - Artificial Neural Network
+matplotlib - plotting graphs
 ```
 
 ## Running the Project
