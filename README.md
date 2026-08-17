@@ -54,9 +54,9 @@ The Perceptron detected more fraud cases but produced **7,120 false alarms**. Th
 
 ## Results Visualization
 
-![Threshold vs Precision, Recall and F1-score](results/threshold_metrics.png)
+![Threshold vs Precision, Recall and F1-score](threshold_metrics.png)
 
-![Precision-Recall Curve](results/precision_recall_curve.png)
+![Precision-Recall Curve](precision_recall_curve.png)
 
 ## Technologies
 
@@ -75,9 +75,9 @@ Its final performance was:
 
 ```text
 Precision: 75.93%
-Recall:    83.67%
-F1-score:  79.61%
-PR-AUC:    0.75121
+Recall: 83.67%
+F1-score: 79.61%
+PR-AUC: 0.75121
 ```
 
 ## Author
