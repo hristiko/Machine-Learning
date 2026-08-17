@@ -54,9 +54,9 @@ The Perceptron detected more fraud cases but produced **7,120 false alarms**. Th
 
 ## Results Visualization
 
-![Threshold vs Precision, Recall and F1-score](threshold_metrics.png)
+![Threshold vs Precision, Recall and F1-score](threshold_metrics.PNG)
 
-![Precision-Recall Curve](precision_recall_curve.png)
+![Precision-Recall Curve](precision_recall_curve.PNG)
 
 ## Technologies
 
