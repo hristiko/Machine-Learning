@@ -1,6 +1,6 @@
 # Credit Card Fraud Detection
 
-This is an ML project for studting purposes, which detects fraudulent credit card transactions. The dataset is highly imbalanced, meaning that legitimate transactions are much more common than fraud transactions.
+This is an ML project for studying purposes, which detects fraudulent credit card transactions. The dataset is highly imbalanced, meaning that legitimate transactions are much more common than fraud transactions.
 
 Link to the dataset: https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud
 
